@@ -70,9 +70,10 @@ export default class ApiDbAdapter {
     this.broker = broker
     this.service = service
 
-    if (!this.service.schema.collection) {
-      throw new Errors.MoleculerServerError('Missing `collection` definition in schema of service!')
-    }
+    // todo need to figure this out
+    // if (!this.service.schema.collection) {
+    //   throw new Errors.MoleculerServerError('Missing `collection` definition in schema of service!')
+    // }
   }
 
   connect() { return Promise.resolve() }
