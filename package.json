@@ -1,0 +1,11 @@
+{
+  "name": "moleculer-db-back4app-adapater",
+  "version": "0.0.1",
+  "main": "index.js",
+  "license": "MIT",
+  "dependencies": {
+    "axios": "0.19.2",
+    "moleculer": "0.14.8",
+    "typescript": "3.9.7"
+  }
+}
