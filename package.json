@@ -1,5 +1,5 @@
 {
-  "name": "moleculer-db-back4app-adapater",
+  "name": "moleculer-db-back4app-adapter",
   "version": "0.0.3",
   "main": "dist/index.js",
   "license": "MIT",

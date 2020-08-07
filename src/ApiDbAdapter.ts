@@ -134,11 +134,30 @@ export default class ApiDbAdapter {
   }
 
   clear() {}
-  entityToObject(entity: any) {}
-  createCursor(params: any, isCounting: boolean) {}
-  transformSort(paramSort: any) {}
-  stringToObjectID(id: string) {}
-  objectIDToString(id: string) {}
-  beforeSaveTransformID (entity: any, idField: string) {}
-  afterRetrieveTransformID (entity: any, idField: string) {}
+
+  entityToObject(entity: any) {
+    return entity
+  }
+  createCursor(params: any, isCounting: boolean) {
+    // todo implement
+  }
+  transformSort(paramSort: any) {
+    // todo implement
+  }
+
+  stringToObjectID(id: string) { return id }
+  objectIDToString(id: string) { return id }
+  beforeSaveTransformID (entity: any, idField: string) {
+    entity[idField] = entity.id
+    delete entity.id
+
+    return entity
+  }
+
+  afterRetrieveTransformID (entity: any, idField: string) {
+    entity.id = entity[idField]
+    delete entity[idField]
+
+    return entity
+  }
 }
