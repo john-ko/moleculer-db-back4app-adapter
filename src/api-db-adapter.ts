@@ -41,29 +41,11 @@ export default class ApiDbAdapter {
   service?: Service
   axios: AxiosInstance
 
-  constructor(uri: string, opts?: ApiDbAdapterOptions, dbName?: string) {
+  constructor(axios: AxiosInstance, uri: string, dbName?: string, opts?: ApiDbAdapterOptions,) {
     this.uri = uri
     this.opts = opts ?? {}
     this.dbName = dbName ?? ''
-
-    if (opts?.axios) {
-      this.axios = opts.axios
-      return
-    }
-
-    const axiosConfigOptions: AxiosRequestConfig = {
-      baseURL: uri
-    }
-
-    if (opts?.headers) {
-      axiosConfigOptions.headers = opts.headers
-    }
-
-    if (opts?.timeout) {
-      axiosConfigOptions.timeout = opts.timeout
-    }
-
-    this.axios = axios.create(axiosConfigOptions)
+    this.axios = axios
   }
 
   init(broker: ServiceBroker, service: Service) {
