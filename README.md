@@ -5,7 +5,9 @@ using back4app parse server as a db so no real need for a real database.
 ## usage
 ```js
 const DbService = require('moleculer-db')
+const axios = require('axios')
 const Back4AppAdapter = require('moleculer-db-back4app-adapter')
+const axiosFactory = Back4AppAdapter.axiosFactory
 
 const options: {
   headers = {
@@ -15,10 +17,12 @@ const options: {
   }
 }
 
+const axiosInstace = axiosFactory(axios, options)
+
 module.exports = {
-	name: "ServiceName",
-	mixins: [DbService],
-  adapter: new Back4AppAdapter('https://parseapi.back4app.com', options, 'users'),
+  name: "ServiceName",
+  mixins: [DbService],
+  adapter: new Back4AppAdapter(axiosInstance, 'https://parseapi.back4app.com', 'users'),
 }
 ```
 
